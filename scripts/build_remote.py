@@ -42,8 +42,8 @@ raw_url = list(remote.urls)[0]
 url = urlparse(raw_url)
 # Windows urls don't quite parse properly
 if url.scheme == "" and url.netloc == "":
-    url = urlparse("ssh://" + raw_url)
-print("URL: " + str(url))
+    url = urlparse(f"ssh://{raw_url}")
+print(f"URL: {str(url)}")
 netloc = url.netloc.split(":")[0]
 path = url.path
 branch_name = repo.active_branch.name
